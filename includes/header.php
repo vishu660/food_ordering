@@ -1,5 +1,6 @@
 <?php
-// includes/header.php
+// Start session to check if user logged in
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,36 +15,13 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/core_php_food_ordering/public/assets/css/style.css">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .navbar {
-            padding: 1rem 0;
-        }
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #e63946;
-        }
-        .navbar-nav .nav-link {
-            font-weight: 500;
-            color: #333;
-            margin: 0 8px;
-        }
-        .navbar-nav .nav-link.active {
-            color: #e63946;
-        }
-        .btn-signup {
-            background-color: #e63946;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-weight: 500;
-        }
-        .btn-signup:hover {
-            background-color: #d62828;
-            color: #fff;
-        }
+        body { font-family: 'Poppins', sans-serif; }
+        .navbar { padding: 1rem 0; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 700; color: #e63946; }
+        .navbar-nav .nav-link { font-weight: 500; color: #333; margin: 0 8px; }
+        .navbar-nav .nav-link.active { color: #e63946; }
+        .btn-signup { background-color: #e63946; color: #fff; padding: 8px 16px; border-radius: 25px; font-weight: 500; }
+        .btn-signup:hover { background-color: #d62828; color: #fff; }
     </style>
 </head>
 <body>
@@ -62,7 +40,15 @@
                 <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
             </ul>
-            <a href="login.php" class="btn btn-signup ms-lg-3">Sign Up</a>
+
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <!-- Agar user login hai -->
+                <a href="profile.php?id=<?php echo $_SESSION['user_id']; ?>" class="btn btn-signup ms-lg-3">Profile</a>
+                <a href="logout.php" class="btn btn-outline-danger ms-lg-2">Logout</a>
+            <?php else: ?>
+                <!-- Agar user login nahi hai -->
+                <a href="login.php" class="btn btn-signup ms-lg-3">Sign Up</a>
+            <?php endif; ?>
         </div>
     </div>
 </nav>
