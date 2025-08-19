@@ -1,51 +1,55 @@
 <?php include 'includes/header.php'; ?>
 
-<h1 class="mb-4">Dashboard</h1>
+<h1 class="mb-4 fw-bold">📊 Dashboard</h1>
 
 <!-- Summary Cards -->
-<div class="row">
+<div class="row g-4">
     <div class="col-md-3">
-        <div class="card text-center bg-primary text-white mb-3">
-            <div class="card-body">
+        <div class="dashboard-card card-blue">
+            <div>
                 <h5>Total Orders</h5>
-                <p class="fs-3">120</p>
+                <p class="fs-3 fw-bold">120</p>
             </div>
+            <i class="bi bi-bag-check-fill"></i>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card text-center bg-success text-white mb-3">
-            <div class="card-body">
+        <div class="dashboard-card card-green">
+            <div>
                 <h5>Menu Items</h5>
-                <p class="fs-3">15</p>
+                <p class="fs-3 fw-bold">15</p>
             </div>
+            <i class="bi bi-journal-text"></i>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card text-center bg-warning text-white mb-3">
-            <div class="card-body">
+        <div class="dashboard-card card-yellow">
+            <div>
                 <h5>Users</h5>
-                <p class="fs-3">50</p>
+                <p class="fs-3 fw-bold">50</p>
             </div>
+            <i class="bi bi-people-fill"></i>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card text-center bg-danger text-white mb-3">
-            <div class="card-body">
+        <div class="dashboard-card card-red">
+            <div>
                 <h5>Offers</h5>
-                <p class="fs-3">3</p>
+                <p class="fs-3 fw-bold">3</p>
             </div>
+            <i class="bi bi-tag-fill"></i>
         </div>
     </div>
 </div>
 
 <!-- Recent Orders Table -->
-<div class="card mt-4">
+<div class="card mt-5 shadow-sm">
     <div class="card-header bg-dark text-white">
         Recent Orders
     </div>
     <div class="card-body">
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark">
+        <table class="table table-hover align-middle">
+            <thead>
                 <tr>
                     <th>Order ID</th>
                     <th>Customer</th>
@@ -60,7 +64,7 @@
                     <td>Vishal</td>
                     <td>Burger, Pizza</td>
                     <td>₹400</td>
-                    <td><span class="badge bg-warning">Pending</span></td>
+                    <td><span class="badge bg-warning text-dark">Pending</span></td>
                 </tr>
                 <tr>
                     <td>#102</td>
