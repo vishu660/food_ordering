@@ -48,13 +48,17 @@ if (isset($_POST['login'])) {
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
                         <h3 class="text-center fw-bold mb-4">Login</h3>
-
                         <!-- Error Message -->
                         <?php if (!empty($error)): ?>
                             <div class="alert alert-danger"><?= $error; ?></div>
                         <?php endif; ?>
 
                         <form method="POST" action="login.php">
+                        <?php if (!empty($error)) { ?>
+                            <div class="alert alert-danger"><?= $error; ?></div>
+                        <?php } ?>
+
+                        <form action="" method="POST">
                             <div class="mb-3">
                                 <label>Email *</label>
                                 <input type="email" name="email" class="form-control" required>
@@ -65,8 +69,6 @@ if (isset($_POST['login'])) {
                             </div>
                             <button type="submit" name="login" class="btn btn-danger w-100">Login</button>
                         </form>
-
-
                         <p class="text-center mt-3 mb-0">
                             Don’t have an account? <a href="register.php">Register</a>
                         </p>
