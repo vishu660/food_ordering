@@ -1,8 +1,8 @@
 <?php
 include '../includes/config.php';
-require '../classes/User.php';
+require '../classes/Items.php';
 
-$userObj = new User($conn);
+$userObj = new Items($conn);
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];

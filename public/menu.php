@@ -1,12 +1,26 @@
 <?php
 include '../includes/config.php';
-require '../classes/User.php';
+require '../classes/Items.php';
+require '../classes/Order.php';
 
-$userObj = new User($conn);
+$user_id = 1; // demo ke liye, login user id yaha daale
 
-// Menu items fetch karo
-$menuItems = $userObj->getAllMenuItems(); // ⚡️ Ye method User class me likhna hoga agar abhi nahi hai
+$itemsObj = new Items($conn);
+$orderObj = new Order($conn);
+
+// Menu items fetch
+$menuItems = $itemsObj->getAllMenuItems();
+
+// Handle Add to Cart
+if(isset($_POST['add_to_cart'])){
+    $item_id = $_POST['item_id'];
+    $quantity = $_POST['quantity'];
+    $orderObj->addToCart($user_id, $item_id, $quantity);
+    header("Location: ".$_SERVER['PHP_SELF']);
+    exit;
+}
 ?>
+
 
 <?php include '../includes/header.php'; ?>
 
@@ -41,6 +55,13 @@ $menuItems = $userObj->getAllMenuItems(); // ⚡️ Ye method User class me likh
                                             <div class="card-body text-center">
                                                 <h5 class="card-title fw-bold"><?= htmlspecialchars($item['name']) ?></h5>
                                                 <p class="text-danger fw-bold">₹<?= $item['price'] ?></p>
+
+                                                <!-- Add to Cart Form -->
+    <form method="post" class="mt-2">
+        <input type="hidden" name="item_id" value="<?= $item['id'] ?>">
+        <input type="number" name="quantity" value="1" min="1" class="form-control mb-2" style="width:80px; margin:auto;">
+        <button type="submit" name="add_to_cart" class="btn btn-primary btn-sm w-100">Add to Cart</button>
+    </form>
                                             </div>
                                         </div>
                                     </div>

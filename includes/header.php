@@ -1,6 +1,7 @@
 <?php
-// Start session to check if user logged in
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

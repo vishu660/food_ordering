@@ -1,6 +1,11 @@
 <?php
-session_start();
-include '../includes/config.php'; // DB connection
+include '../includes/config.php';
+
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 if (isset($_POST['login'])) {
     $email = trim($_POST['email']);

@@ -1,14 +1,12 @@
 <?php
 include '../includes/config.php';
-require '../classes/User.php';
+require '../classes/Items.php';
 
-$userObj = new User($conn);
+$userObj = new Items($conn);
 
 // Menu items fetch karo
-$menuItems = $userObj->getAllMenuItems(); // ⚡️ Ye method User class me likhna hoga agar abhi nahi hai
+$menuItems = $userObj->getAllMenuItems();
 ?>
-
-
 <?php include '../includes/header.php'; ?>
 <style>
     img.card-img-top-item {

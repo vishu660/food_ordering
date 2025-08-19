@@ -1,9 +1,9 @@
 
 <?php
     include '../includes/config.php';
-    require '../classes/User.php';
+    require '../classes/Items.php';
 
-    $userObj = new User($conn);
+    $userObj = new Items($conn);
     $menuItems = $userObj->getMenu();
 ?>
 
