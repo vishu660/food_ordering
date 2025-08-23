@@ -50,6 +50,7 @@ if(isset($_POST['add_to_cart'])){
                             <div class="row g-4">
                                 <?php foreach ($chunk as $item): ?>
                                     <div class="col-md-3 col-sm-6">
+                                        <a href="product-details.php?id=<?= $item['id'] ?>">
                                         <div class="card shadow-sm border-0 h-100">
                                             <img src="../uploads/<?= $item['image'] ?>" class="card-img-top-item" alt="<?= htmlspecialchars($item['name']) ?>">
                                             <div class="card-body text-center">
@@ -57,13 +58,14 @@ if(isset($_POST['add_to_cart'])){
                                                 <p class="text-danger fw-bold">₹<?= $item['price'] ?></p>
 
                                                 <!-- Add to Cart Form -->
-    <form method="post" class="mt-2">
-        <input type="hidden" name="item_id" value="<?= $item['id'] ?>">
-        <input type="number" name="quantity" value="1" min="1" class="form-control mb-2" style="width:80px; margin:auto;">
-        <button type="submit" name="add_to_cart" class="btn btn-primary btn-sm w-100">Add to Cart</button>
-    </form>
+                                                <form method="post" class="mt-2">
+                                                    <input type="hidden" name="item_id" value="<?= $item['id'] ?>">
+                                                    <input type="number" name="quantity" value="1" min="1" class="form-control mb-2" style="width:80px; margin:auto;">
+                                                    <button type="submit" name="add_to_cart" class="btn btn-primary btn-sm w-100">Add to Cart</button>
+                                                </form>
                                             </div>
                                         </div>
+                                        </a>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
@@ -77,79 +79,7 @@ if(isset($_POST['add_to_cart'])){
                     </div>
                 <?php endif; ?>
         <!-- Menu Item 1 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="card shadow-sm border-0 h-100">
-                <a href="product-details.php?id=1">
-                    <img src="assets/images/burger.jpg" class="card-img-top" alt="Cheese Burger">
-                </a>
-                <div class="card-body text-center">
-                    <a href="product-details.php?id=1" class="text-decoration-none text-dark">
-                        <h5 class="card-title fw-bold">Cheese Burger</h5>
-                    </a>
-                    <p class="text-muted">Juicy beef patty with cheese and lettuce.</p>
-                    <p class="text-danger fw-bold mb-3">₹150</p>
-                    <a href="cart.php" class="btn btn-outline-danger">Add to Cart</a>
-                </div>
-            </div>
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon bg-dark rounded-circle p-3"></span>
-            </button>
-        </div>
-        <!-- Menu Item 2 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="card shadow-sm border-0 h-100">
-                <a href="product-details.php?id=2">
-                    <img src="assets/images/pizza.jpg" class="card-img-top" alt="Veggie Pizza">
-                </a>
-                <div class="card-body text-center">
-                    <a href="product-details.php?id=2" class="text-decoration-none text-dark">
-                        <h5 class="card-title fw-bold">Veggie Pizza</h5>
-                    </a>
-                    <p class="text-muted">Loaded with fresh vegetables and cheese.</p>
-                    <p class="text-danger fw-bold mb-3">₹250</p>
-                    <a href="cart.php" class="btn btn-outline-danger">Add to Cart</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Menu Item 3 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="card shadow-sm border-0 h-100">
-                <a href="product-details.php?id=3">
-                    <img src="assets/images/pasta.jpg" class="card-img-top" alt="Pasta Alfredo">
-                </a>
-                <div class="card-body text-center">
-                    <a href="product-details.php?id=3" class="text-decoration-none text-dark">
-                        <h5 class="card-title fw-bold">Pasta Alfredo</h5>
-                    </a>
-                    <p class="text-muted">Creamy Alfredo pasta with mushrooms.</p>
-                    <p class="text-danger fw-bold mb-3">₹200</p>
-                    <a href="cart.php" class="btn btn-outline-danger">Add to Cart</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Menu Item 4 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="card shadow-sm border-0 h-100">
-                <a href="product-details.php?id=4">
-                    <img src="assets/images/salad.jpg" class="card-img-top" alt="Fresh Salad">
-                </a>
-                <div class="card-body text-center">
-                    <a href="product-details.php?id=4" class="text-decoration-none text-dark">
-                        <h5 class="card-title fw-bold">Fresh Salad</h5>
-                    </a>
-                    <p class="text-muted">Mix of lettuce, tomatoes, and cucumbers.</p>
-                    <p class="text-danger fw-bold mb-3">₹120</p>
-                    <a href="cart.php" class="btn btn-outline-danger">Add to Cart</a>
-                </div>
-            </div>
-        </div>
-    </div>
+       
 </section>
 </main>
 <?php include '../includes/footer.php'; ?>
